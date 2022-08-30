@@ -14,7 +14,7 @@ dependencies:
     - configargparse
     - h5py
     - numpy
-    - ray >= 1.11
+    - ray
     - ray[tune]
     - pytorch-lightning
     - scikit-learn

@@ -1,0 +1,7 @@
+data*
+examples*
+libraries*
+notebooks*
+scripts*
+.github*
+**/*.pyc
