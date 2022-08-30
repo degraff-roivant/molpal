@@ -1,0 +1,20 @@
+FROM  mambaorg/micromamba:latest
+
+WORKDIR /molpal
+
+COPY environment.yml .
+RUN mamba env create -f environment.yml
+
+RUN echo "conda activate molpal" >> ~/.bashrc
+SHELL ["/bin/bash", "--login", "-c"]
+
+COPY molpal .
+RUN pip install . pyscreener
+
+RUN wget https://sourceforge.net/projects/smina/files/smina.static/download -O smina && \
+    chmod +x smina && \
+    mkdir bin && \
+    mv smina bin
+
+# ENTRYPOINT [ "molpal" ]
+# CMD [ "run" ]
